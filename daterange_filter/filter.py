@@ -87,7 +87,7 @@ class DateRangeForm(DateRangeFilterBaseForm):
         self.fields['%s%s__gte' % (FILTER_PREFIX, field_name)] = forms.DateField(
             label='',
             widget=AdminDateWidget(
-                attrs={'placeholder': _('From date')}
+                attrs={'placeholder': "Desde"}
             ),
             localize=True,
             required=False
@@ -96,7 +96,7 @@ class DateRangeForm(DateRangeFilterBaseForm):
         self.fields['%s%s__lte' % (FILTER_PREFIX, field_name)] = forms.DateField(
             label='',
             widget=AdminDateWidget(
-                attrs={'placeholder': _('To date')}
+                attrs={'placeholder': "Hasta"}
             ),
             localize=True,
             required=False,
@@ -155,7 +155,7 @@ class DateRangeFilter(admin.filters.FieldListFilter):
         Pop the original parameters, and return the date filter & other filter
         parameters.
         """
-        
+
         cl.params.pop(self.lookup_kwarg_since, None)
         cl.params.pop(self.lookup_kwarg_upto, None)
         return ({
